@@ -6,3 +6,5 @@ def hello():
 
 if __name__ == '__main_':
     app.run()
+
+app.run(port=5000)

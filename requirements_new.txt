@@ -1,26 +1,42 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: linux-64
+asn1crypto=0.24.0=py36_3
 bzip2=1.0.6=h470a237_2
 ca-certificates=2018.8.24=ha4d7672_0
-certifi=2016.2.28=py36_0
+certifi=2018.8.24=py36_1
+cffi=1.11.5=py36h5e8e0c9_1
+chardet=3.0.4=py36_3
 click=6.7=py_1
+cryptography=2.3.1=py36hdffb7b8_0
+cryptography-vectors=2.3.1=py36_0
 flask=1.0.2=py_1
 gunicorn=19.1.0=py36_0
+idna=2.7=py36_2
 itsdangerous=0.24=py_2
 jinja2=2.10=py_1
+libffi=3.2.1=hfc679d8_5
 libgcc-ng=7.2.0=hdf63c60_3
+libpq=9.5.4=0
 libstdcxx-ng=7.2.0=hdf63c60_3
 markupsafe=1.0=py36_0
 ncurses=6.1=hfc679d8_1
 openssl=1.0.2p=h470a237_0
 pastedeploy=1.5.2=py36_1
 pip=9.0.1=py36_1
+psycopg2=2.7.1=py36_0
+pycparser=2.19=py_0
+pyopenssl=18.0.0=py36_0
+pysocks=1.6.8=py36_2
 python=3.6.2=0
 readline=6.2=2
+requests=2.19.1=py36_1
 setuptools=36.4.0=py36_1
+six=1.11.0=py36_1
+sqlalchemy=1.1.13=py36_0
 sqlite=3.13.0=0
 tk=8.5.18=0
+urllib3=1.23=py36_1
 werkzeug=0.14.1=py_0
 wheel=0.29.0=py36_0
 xz=5.2.3=0
