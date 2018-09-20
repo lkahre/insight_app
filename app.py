@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from get_letters import get_letters
-app = Flask(__name__)
+
+app = Flask(__name__, static_url_path='/static')
 @app.route('/', methods=['GET', 'POST'])
 
 def index():
@@ -25,6 +26,4 @@ def hello():
     return "Insight web app created by Lauren Kahre."
 
 if __name__ == '__main_':
-    app.run()
-
-app.run(port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
