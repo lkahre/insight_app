@@ -19,9 +19,28 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <p class="w3-xlarge">An Insight Remote Data Science Project</p>
         <form role="form" method='POST' action='/recommendation'>
         <div class="form-group">
-            <input type="text" name="admit_class" placeholder="Enter your class of admission" stype = "max-width: 300px;" autofocus required>
-            <input type="text" name="edu_level" placeholder="Enter your level of education" stype = "max-width: 300px;" autofocus required>
-            <input type="text" name="sector" placeholder="Enter your job sector" stype = "max-width: 300px;" autofocus required>
+            <select name = "admit_class" id="admit_class" width="200" method="GET">
+            <option selected="selected" value = ''>Select Current Visa Type</option>
+            {% for class in admit_class_list %}
+                <option value = "{{ class }}">{{ class }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <select name = "edu_level" id="edu_level" width="200" method="GET">
+            <option selected="selected" value = ''>Select Education Level</option>
+            {% for level in education_level_list %}
+                <option value = "{{ level }}">{{ level }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <select name = "sector" id="sector" width="200" method="GET">
+            <option selected="selected" value = ''>Select Job Sector</option>
+            {% for sectorid in sector_list %}
+                <option value = "{{ sectorid }}">{{ sectorid }}</option>
+            {% endfor %}
+            </select>
         </div>
         <button type="submit">When Should I Apply?</button>
       </form>

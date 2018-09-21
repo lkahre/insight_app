@@ -1,9 +1,9 @@
-<select name = "Class of Admission" id="Class of Admission" width="200">
-                <option selected="selected" value = ''>Select Class of Admission</option>
-                {% for class in admit_class_list %}
-                    <option value = "{{ class }}">{{ class }}</option>
-                {% endfor %}
-            </select>
+<select name = "Class of Admission" id="Class of Admission" width="200" method="GET">
+    <option selected="selected" value = ''>Select Current Visa Type</option>
+    {% for class in admit_class_list %}
+        <option value = "{{ class }}">{{ class }}</option>
+    {% endfor %}
+</select>
             <select name = "Level of Education" id="Level of Education" width="200" class="selectpicker form-control">
                 <option selected="selected" value = ''>Select Level of Education</option>
                 {% for level in education_level_list %}

@@ -9,7 +9,8 @@ import base64
 app = Flask(__name__, static_url_path='/static')
 @app.route('/', methods=['GET', 'POST']) 
 def index():           
-    return render_template('index.html')
+    sector_list, admit_class_list, education_level_list = get_varlists()
+    return render_template('index.html', admit_class_list=admit_class_list, sector_list=sector_list, education_level_list=education_level_list)
 
 @app.route('/recommendation', methods=['GET', 'POST']) 
 def recommendation():
@@ -33,8 +34,8 @@ def recommendation():
             admit_class = request.form['admit_class']
             edu_level = request.form['edu_level']
             sector = request.form['sector']
-            sector = float(sector[:2])
-            probs, top3probs = calc_probabilities(admit_class, edu_level, sector)
+            #sector = float(sector[:2])
+            probs, top3probs = calc_probabilities(admit_class, edu_level, float(sector[:2]))
             htmltables = [probs.to_html(classes="probs"), top3probs.to_html(classes="top3probs")]
         except:
             errors.append("Unable to get URL. Please make sure it's valid and try again."
