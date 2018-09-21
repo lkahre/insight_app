@@ -17,7 +17,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <header class="w3-container w3-red w3-center" style="padding:128px 16px">
       <h1 class="w3-margin w3-jumbo">Visa Application Optmizer</h1>
       <p class="w3-xlarge">An Insight Remote Data Science Project</p>
-        <form role="form" method='POST' action='/'>
+        <form role="form" method='POST' action='/recommendation'>
         <div class="form-group">
             <input type="text" name="admit_class" placeholder="Enter your class of admission" stype = "max-width: 300px;" autofocus required>
             <input type="text" name="edu_level" placeholder="Enter your level of education" stype = "max-width: 300px;" autofocus required>
@@ -26,26 +26,4 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <button type="submit">When Should I Apply?</button>
       </form>
       </header>
-      <div>
-          {% if sector %}
-              <h2>Job sector</h2>
-              <h4>{{ sector }}</h4>
-              <h2>Education Level</h2>
-              <h4>{{ edu_level }}</h4>
-              <h2>Class of Admission</h2>
-              <h4>{{ admit_class }}</h4>
-              <h2>{{titles[0]}}</h2>
-              {{ tables[0]|safe }}
-              <h2>{{titles[1]}}</h2>
-              {{ tables[1]|safe }}
-              
-            </div>
-          </div>
-          {% endif %}
-        </div>
-      <br>
-      {% for error in errors %}
-        <h4>{{ error }}</h4>
-      {% endfor %}
-    </div>
 </body>
