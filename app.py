@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from calc_probabilities import calc_probabilities
 from get_varlists import get_varlists
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 import io
 import base64
@@ -34,19 +34,19 @@ def index():
             htmltables = [probs.to_html(classes="probs"), top3probs.to_html(classes="top3probs")]
             titles = ['Probabilities by Month', 'Top Three Months']
             
-            img = io.BytesIO()
-            fig = plt.figure(figsize=(9.8,5), dpi=100)
-            xaxis_loc = np.arange(12)
-            fig.patch.set_facecolor('w')
-            plt.plot(xaxis_loc, probs['Probability'])
-            plt.ylim([0, 100])
-            plt.xticks(xaxis_loc, probs['Month'])
-            plt.xlabel('Month')
-            plt.ylabel('% Chance of Acceptance')
-            plt.title('Visa Chance of Acceptance by Month')
-            plt.savefig(img, format='png')
-            img.seek(0)        
-            plot_url = base64.b64encode(img.getvalue()).decode
+            #img = io.BytesIO()
+            #fig = plt.figure(figsize=(9.8,5), dpi=100)
+            #xaxis_loc = np.arange(12)
+            #fig.patch.set_facecolor('w')
+            #plt.plot(xaxis_loc, probs['Probability'])
+            #plt.ylim([0, 100])
+            #plt.xticks(xaxis_loc, probs['Month'])
+            #plt.xlabel('Month')
+            #plt.ylabel('% Chance of Acceptance')
+            #plt.title('Visa Chance of Acceptance by Month')
+            #plt.savefig(img, format='png')
+            #img.seek(0)        
+            #plot_url = base64.b64encode(img.getvalue()).decode
         except:
             errors.append("Unable to get URL. Please make sure it's valid and try again."
                          )
