@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Lauren's Insight App</title>
-  </head>
+<title>Visa Application Optimizer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
   <body>
-    <div class="container">
-      <h1>Lauren's Insight App</h1>
-      <form role="form" method='POST' action='/'>
+   <!-- Header -->
+    <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+      <h1 class="w3-margin w3-jumbo">Visa Application Optmizer</h1>
+      <p class="w3-xlarge">An Insight Remote Data Science Project</p>
+        <form role="form" method='POST' action='/'>
         <div class="form-group">
             <input type="text" name="admit_class" placeholder="Enter your class of admission" stype = "max-width: 300px;" autofocus required>
-        </div>
-        <div class="form-group">
             <input type="text" name="edu_level" placeholder="Enter your level of education" stype = "max-width: 300px;" autofocus required>
-        </div>
-        <div class="form-group">
             <input type="text" name="sector" placeholder="Enter your job sector" stype = "max-width: 300px;" autofocus required>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">When Should I Apply?</button>
       </form>
+      </header>
       <div>
           {% if sector %}
               <h2>Job sector</h2>

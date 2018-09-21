@@ -1,0 +1,28 @@
+<style>
+.main {
+background-color = rbga(0, 0, 255, 0.2);
+margin-top: 100px;
+padding-bottom: 50px;
+    }
+.main h1 {
+font-size: 3.5em;
+font-family: Arial;
+color: #00008B
+    }
+.main h2 {
+font-size: 2em;
+font-family: Arial;
+color: #00008B
+    }
+.main h3 {
+font-size: 2em;
+font-family: Arial;
+color: #00008B
+    }
+.main h4 {
+font-size: 1em;
+font-family: Arial;
+color: #00008B
+    }
+
+</style>
