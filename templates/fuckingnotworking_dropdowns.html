@@ -1,0 +1,18 @@
+<select name = "Class of Admission" id="Class of Admission" width="200">
+                <option selected="selected" value = ''>Select Class of Admission</option>
+                {% for class in admit_class_list %}
+                    <option value = "{{ class }}">{{ class }}</option>
+                {% endfor %}
+            </select>
+            <select name = "Level of Education" id="Level of Education" width="200" class="selectpicker form-control">
+                <option selected="selected" value = ''>Select Level of Education</option>
+                {% for level in education_level_list %}
+                    <option value = "{{ level }}">{{ level }}</option>
+                {% endfor %}
+            </select>
+            <select name = "Job Sector" id = "Job Sector" width="200">
+                <option selected="selected" value = ''>Select Job Sector</option>
+                {% for sector in sector_list %}
+                    <option value = "{{ sector }}">{{ sector }}</option>
+                {% endfor %}
+            </select>

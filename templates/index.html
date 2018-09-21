@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Yourname Insight App</title>
+    <title>Lauren's Insight App</title>
   </head>
   <body>
     <div class="container">
       <h1>Lauren's Insight App</h1>
       <form role="form" method='POST' action='/'>
         <div class="form-group">
-          <input type="text" name="word" placeholder="Enter word" style="max-width: 300px;" autofocus required>
+            <input type="text" name="admit_class" placeholder="Enter your class of admission" stype = "max-width: 300px;" autofocus required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="edu_level" placeholder="Enter your level of education" stype = "max-width: 300px;" autofocus required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="sector" placeholder="Enter your job sector" stype = "max-width: 300px;" autofocus required>
         </div>
         <button type="submit">Submit</button>
       </form>
+      <div>
+          {% if sector %}
+              <h2>Job sector</h2>
+              <h4>{{ sector }}</h4>
+              <h2>Education Level</h2>
+              <h4>{{ edu_level }}</h4>
+              <h2>Class of Admission</h2>
+              <h4>{{ admit_class }}</h4>
+              <h2>{{titles[0]}}</h2>
+              {{ tables[0]|safe }}
+              <h2>{{titles[1]}}</h2>
+              {{ tables[1]|safe }}
+              
+            </div>
+            <img src="data:image/png;base64,{{plot_url}}"width="500">
+          </div>
+          {% endif %}
+        </div>
       <br>
       {% for error in errors %}
         <h4>{{ error }}</h4>
       {% endfor %}
-    </div>
-    <div>
-        {% if letters %}
-            <h2>Letters Of Your Word</h2>
-            <br>
-            <div id="results">
-                <ol>
-                {% for letter in letters %}
-                    <li>{{ letter }}</li>
-                {% endfor %}
-              </table>
-            </div>
-        {% endif %}
     </div>
 </body>
