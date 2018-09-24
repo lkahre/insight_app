@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from calc_probabilities import calc_probabilities
+from make_plot import make_plot
 from get_varlists import get_varlists
 #import matplotlib.pyplot as plt
 import numpy as np
@@ -22,7 +23,8 @@ def recommendation():
     probs = []
     htmltables = []
     titles = []
-    plot_url = []
+    plotscript = []
+    plotdiv = []
     #sector_list = []
     #admit_class_list = []
     #education_level_list = []
@@ -30,18 +32,22 @@ def recommendation():
     if request.method == "POST":
         #get url that the user has entered
         try:
-            #sector_list, admit_class_list, education_level_list = getvarlists() 
+            #get user input from home page form
             admit_class = request.form['admit_class']
             edu_level = request.form['edu_level']
             sector = request.form['sector']
-            #sector = float(sector[:2])
+            #calculate probabilities
             probs, top3probs = calc_probabilities(admit_class, edu_level, float(sector[:2]))
-            htmltables = [probs.to_html(classes="probs"), top3probs.to_html(classes="top3probs")]
+            #put probability tables to html form
+            htmltables = [probs.to_html(classes="probs", index=False), 
+                          top3probs.to_html(classes="top3probs", index=False)]
+            #make plot
+            plotscript, plotdiv = make_plot(probs)
         except:
             errors.append("Unable to get URL. Please make sure it's valid and try again."
                          )
             print("error")
-    return render_template('recommendation.html', errors=errors, admit_class = admit_class, sector = sector, edu_level = edu_level, tables=htmltables, plot_url = plot_url)
+    return render_template('recommendation.html', errors=errors, admit_class = admit_class, sector = sector, edu_level = edu_level, tables=htmltables, plotscript = plotscript, plotdiv=plotdiv)
 def hello():
     return "Insight web app created by Lauren Kahre."
 

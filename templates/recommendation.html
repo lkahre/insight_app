@@ -7,6 +7,20 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+    href="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.css"
+    rel="stylesheet" type="text/css">
+<link
+    href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.13.0.min.css"
+    rel="stylesheet" type="text/css">
+<link
+    href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.13.0.min.css"
+    rel="stylesheet" type="text/css">
+
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.js"></script>
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.13.0.min.js"></script>
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.13.0.min.js"></script>
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
@@ -19,14 +33,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <h4>Your Level of Education: {{ edu_level }}</h4>
       <h4>Your Current Visa Status: {{ admit_class }} </h4>
       <h4>Your Job Sector: {{ sector }} </h4>
-      <h6>Based on this information, your month-by-month chance of acceptance is:</h6>
-              {{ tables[0]|safe }}
+      <h6>Based on this information, your top three months to apply are:</h6>
+              {{ tables[1]|safe }}
+        {{ plotdiv|safe }}
+        {{ plotscript|safe }}
     </div>
 
     <div class="w3-third w3-center">
-        <h6>Your top three months to apply are:</h6>
-              {{ tables[1]|safe }}
+        <h6>Your month-by-month chance of acceptance is:</h6>
+              {{ tables[0]|safe }}
     </div>
+    
   </div>
 </div>
 <div>
