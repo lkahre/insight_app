@@ -1,4 +1,4 @@
-def calc_probabilities(admit_class, education_level, sector):
+def calc_probabilities(admit_class, education_level, sector, agent_used):
     import numpy as np
     import pandas as pd
     import math
@@ -47,6 +47,10 @@ def calc_probabilities(admit_class, education_level, sector):
     user_coa = 'class_of_admission_' + user_data['class_of_admission'][0]
     user_loe = 'foreign_worker_info_education_' + user_data['foreign_worker_info_education'][0]
     user_sector = 'sector_code_' + str(user_data['sector_code'][0])
+    
+    #Initialize agent case; no agent case already at zero
+    if agent_used == 'yes':
+        user_dummy_df['agent_used_1'] = 1
 
     for column in user_dummy_df:
         if user_coa == column:
@@ -64,19 +68,28 @@ def calc_probabilities(admit_class, education_level, sector):
     prob_accept = np.zeros(12)
     
     for month in range(1, 13):
-        user_datamonth = user_dummy_df.iloc[month-1, :] 
+        user_datamonth = user_dummy_df.iloc[month-1, :]
         model_result = user_datamonth * model_weights
+        #Probabilites 
         prob_accept[month-1] = model_result.sum(axis=1)
         prob_accept[month-1] = math.exp(prob_accept[month-1])
         prob_accept[month-1] = prob_accept[month-1]/(1+prob_accept[month-1])
         prob_accept[month-1] = prob_accept[month-1]*100
         
     prob_accept = np.around(prob_accept, 2)
-    months_list = []
+    
+    #months_list = []
+    months_list_fullname = []
     for i in range(1, 13):
-        months_list.append(dt.date(2008, i, 1).strftime('%b'))
+        #months_list.append(dt.date(2008, i, 1).strftime('%b'))
+        months_list_fullname.append(dt.date(2008, i, 1).strftime('%B'))
 
-    result_df = pd.DataFrame({'Month': months_list, 'Probability': prob_accept})
-    top3_df = result_df.nlargest(3, 'Probability')
+    result_df = pd.DataFrame({'Month': months_list_fullname, 
+                              'Percent Chance': prob_accept})
+    top3_df = result_df.nlargest(3, 'Percent Chance')
+    #top3_dfnum = len(top3_df)
+    top3_df.index = range(1, 4)
+    #result_df = result_df.style.set_properties(**{'text-align': 'center'})
+    #result_df.render()
     
     return result_df, top3_df

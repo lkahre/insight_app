@@ -33,14 +33,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <h4>Your Level of Education: {{ edu_level }}</h4>
       <h4>Your Current Visa Status: {{ admit_class }} </h4>
       <h4>Your Job Sector: {{ sector }} </h4>
-      <h6>Based on this information, your top three months to apply are:</h6>
-              {{ tables[1]|safe }}
         {{ plotdiv|safe }}
         {{ plotscript|safe }}
     </div>
 
     <div class="w3-third w3-center">
-        <h6>Your month-by-month chance of acceptance is:</h6>
+        <h4>Based on this information, your top three months to apply are:</h4>
+              {{ tables[1]|safe }}
+        <h4>Your month-by-month chance of acceptance is:</h4>
               {{ tables[0]|safe }}
     </div>
     

@@ -3,9 +3,14 @@ from calc_probabilities import calc_probabilities
 from make_plot import make_plot
 from get_varlists import get_varlists
 #import matplotlib.pyplot as plt
+import pandas as pd
 import numpy as np
 import io
 import base64
+
+def highlight_cols(s):
+    color = 'lightblue'
+    return 'background-color: %s' %color 
 
 app = Flask(__name__, static_url_path='/static')
 @app.route('/', methods=['GET', 'POST']) 
@@ -25,6 +30,7 @@ def recommendation():
     titles = []
     plotscript = []
     plotdiv = []
+    agent_used = []
     #sector_list = []
     #admit_class_list = []
     #education_level_list = []
@@ -36,18 +42,34 @@ def recommendation():
             admit_class = request.form['admit_class']
             edu_level = request.form['edu_level']
             sector = request.form['sector']
+            agent_used = request.form['agent_used']
+
             #calculate probabilities
-            probs, top3probs = calc_probabilities(admit_class, edu_level, float(sector[:2]))
+            probs, top3probs = calc_probabilities(admit_class, edu_level, 
+                                                  float(sector[:2]), agent_used)
             #put probability tables to html form
-            htmltables = [probs.to_html(classes="probs", index=False), 
-                          top3probs.to_html(classes="top3probs", index=False)]
+            #probstrans = probs.transpose()
+            htmltables.append(
+                            probs.style
+                            .applymap(highlight_cols, subset=pd.IndexSlice[[0, 2, 4, 6, 8, 10], :])
+                            .set_properties(**{'text-align':'center', 'width':'300px'})
+                            .hide_index()
+                            .render()
+                            )
+            htmltables.append(
+                            top3probs.style
+                            .set_properties(**{'text-align':'center', 'width':'300px'})
+                            .render()
+                            )
             #make plot
             plotscript, plotdiv = make_plot(probs)
         except:
             errors.append("Unable to get URL. Please make sure it's valid and try again."
                          )
             print("error")
-    return render_template('recommendation.html', errors=errors, admit_class = admit_class, sector = sector, edu_level = edu_level, tables=htmltables, plotscript = plotscript, plotdiv=plotdiv)
+    return render_template('recommendation.html', errors=errors, admit_class = admit_class, 
+                           sector = sector, edu_level = edu_level, agent_used = agent_used, 
+                           tables=htmltables, plotscript = plotscript, plotdiv=plotdiv)
 def hello():
     return "Insight web app created by Lauren Kahre."
 

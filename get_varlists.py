@@ -41,7 +41,8 @@ def get_varlists():
     
     sector_list = sector_list['full_string'].tolist()
     education_level_list = education_level_list['foreign_worker_info_education'].tolist()
-    admit_class_list = admit_class_list['class_of_admission'].tolist()
+    #admit_class_list = admit_class_list['class_of_admission'].tolist()
+    admit_class_list = ['H-1B', 'Other', 'Not in USA']
     
     education_level_list.pop(1)   #remove null value
     
