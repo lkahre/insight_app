@@ -65,7 +65,7 @@ def get_varlists():
         state_list.append(statestring)
     
     for i in range(len(citizen_country_list)):
-        citizen_country_list[i] = citizen_country_list[i].title()        
+        citizen_country_list[i] = citizen_country_list[i].title()
         
     #education_level_list.pop(1)   #remove null value if taken automatically from databaseS
     
