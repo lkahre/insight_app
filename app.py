@@ -54,11 +54,13 @@ def recommendation():
                             .applymap(highlight_cols, subset=pd.IndexSlice[[0, 2, 4, 6, 8, 10], :])
                             .set_properties(**{'text-align':'center', 'width':'300px'})
                             .hide_index()
+                            .set_table_attributes('align="center"')
                             .render()
                             )
             htmltables.append(
                             top3probs.style
-                            .set_properties(**{'text-align':'center', 'width':'300px'})
+                            .set_properties(**{'text-align':'center', 'width':'200px'})
+                            .set_table_attributes('align="center"')
                             .render()
                             )
             #make plot

@@ -27,29 +27,69 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
 <body>   
-<div class="w3-row-padding w3-padding-64 w3-container">
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+    <h1 class="w3-margin w3-jumbo">Visa Application Optmizer</h1>
+    <h4>Your Level of Education: {{ edu_level }}</h4>
+    <h4>Your Current Visa Status: {{ admit_class }} </h4>
+    <h4>Your Job Sector: {{ sector }} </h4>
+        <form role="form" method='POST' action='/'>
+            <div class="form-group">
+            <button type="submit">Try again?</button>
+            </div>
+        </form>
+</header>
+<div class="w3-row-padding w3-padding-64 w3-container" align-content: center>
   <div class="w3-content">
     <div class="w3-twothird">
-      <h4>Your Level of Education: {{ edu_level }}</h4>
-      <h4>Your Current Visa Status: {{ admit_class }} </h4>
-      <h4>Your Job Sector: {{ sector }} </h4>
+        <h4>Based on this information, your top three months to apply are:</h4>
+        {{ tables[1]|safe }}
         {{ plotdiv|safe }}
         {{ plotscript|safe }}
     </div>
 
-    <div class="w3-third w3-center">
-        <h4>Based on this information, your top three months to apply are:</h4>
-              {{ tables[1]|safe }}
+    <div class="w3-third w3-center" align-content: center>
         <h4>Your month-by-month chance of acceptance is:</h4>
               {{ tables[0]|safe }}
     </div>
     
   </div>
 </div>
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      <img src="https://previews.123rf.com/images/rawpixel/rawpixel1406/rawpixel140600653/29160245-group-of-business-people-having-a-conference-about-international-relation-in-a-white-background.jpg" alt="Group of business people having a conference with speech bubbles from various
+      country flags" style="width:300px">
+    </div>
+
+    <div class="w3-twothird">
+      <h3>Need More information?</h3>
+      <h5 class="w3-padding-32">You can find the types of permanent visas at the official 
+          <a href="https://www.uscis.gov/working-united-states/permanent-workers" target=”_blank”> 
+              USCIS webpage</a>.</h5>
+      <h3>Ready to Apply?</h3>
+      <h5 class="w3-padding-32">You can start your application online 
+          <a href="https://www.uscis.gov/tools" target=”_blank”> here </a>.</h5>
+      <h3>Need Help Filing an Application?</h3>
+      <h5 class="w3-padding-32">Many people find more success with their application by using
+          an agent. You can search for immigration lawyers near you 
+          <a href="http://www.google.com/search?q=immigration+attorneys+near+me" target=”_blank”> 
+              here</a>.</h5>
+    </div>
+  </div>
+</div>
+
 <div>
       <br>
       {% for error in errors %}
         <h4>{{ error }}</h4>
       {% endfor %}
 </div>
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
 </body>

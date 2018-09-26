@@ -30,7 +30,7 @@ def make_plot(probs):
     plot.yaxis.major_label_text_font_size = '14pt'
     plot.ygrid.grid_line_color = 'LightGrey'
     #plot.plot_width=500 
-    plot.plot_height=400
+    plot.plot_height=300
     plot.line(month_df['Month'], probs['Percent Chance'], line_width=3, line_cap='round')
     script, div = components(plot)
     print(script)
