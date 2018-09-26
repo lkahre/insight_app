@@ -1,4 +1,5 @@
-def calc_probabilities(admit_class, education_level, sector, agent_used):
+def calc_probabilities(admit_class, education_level, sector, agent_used, 
+                       work_state, citizen_country):
     import numpy as np
     import pandas as pd
     import math
@@ -37,7 +38,8 @@ def calc_probabilities(admit_class, education_level, sector, agent_used):
     #Construct user data dictionary for entry variables
     user_data = {'class_of_admission': [admit_class], 
              'foreign_worker_info_education': [education_level], 
-             'sector_code': [sector]}
+             'sector_code': [sector], 'country_of_citizenship':[citizen_country],
+             'job_info_work_state': [work_state]}
     
     #Initialize user data dummy dataframe
     user_dummy_data = np.zeros([12, len(model_weights.columns.values)], dtype=int)
@@ -47,6 +49,8 @@ def calc_probabilities(admit_class, education_level, sector, agent_used):
     user_coa = 'class_of_admission_' + user_data['class_of_admission'][0]
     user_loe = 'foreign_worker_info_education_' + user_data['foreign_worker_info_education'][0]
     user_sector = 'sector_code_' + str(user_data['sector_code'][0])
+    user_state = 'job_info_work_state_' + str(user_data['job_info_work_state'][0])
+    user_country = 'country_of_citizenship_' + str(user_data['country_of_citizenship'][0])
     
     #Initialize agent case; no agent case already at zero
     if agent_used == 'yes':

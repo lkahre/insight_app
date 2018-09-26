@@ -25,12 +25,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
                 <option value = "{{ class }}">{{ class }}</option>
             {% endfor %}
             </select>
+            <select name = "citizen_country" id="citizen_country" width="200" method="GET">
+            <option selected="selected" value = ''>Select Country of Citizenship</option>
+            {% for country in citizen_country_list %}
+                <option value = "{{ country }}">{{ country }}</option>
+            {% endfor %}
+            </select>
         </div>
         <div class="form-group">
             <select name = "edu_level" id="edu_level" width="200" method="GET">
             <option selected="selected" value = ''>Select Education Level</option>
             {% for level in education_level_list %}
                 <option value = "{{ level }}">{{ level }}</option>
+            {% endfor %}
+            </select>
+            <select name = "work_state" id="work_state" width="200" method="GET">
+            <option selected="selected" value = ''>Select Work State</option>
+            {% for state in state_list %}
+                <option value = "{{ state }}">{{ state }}</option>
             {% endfor %}
             </select>
         </div>
