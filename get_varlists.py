@@ -13,10 +13,10 @@ def get_varlists():
     db_name = creds['db_name']
 
     #engine = create_engine( 'postgresql://{}:{}@{}:{}/{}'.format(username, 
-                                                                 password, 
-                                                                 host, 
-                                                                 port, 
-                                                                 db_name))
+    #                                                             password, 
+    #                                                             host, 
+    #                                                             port, 
+    #                                                             db_name))
    # if not database_exists(engine.url):
    #     create_database(engine.url)
     
