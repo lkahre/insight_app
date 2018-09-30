@@ -15,8 +15,10 @@ def highlight_cols(s):
 app = Flask(__name__, static_url_path='/static')
 @app.route('/', methods=['GET', 'POST']) 
 def index():           
-    sector_list, admit_class_list, education_level_list, citizen_country_list, state_list = get_varlists()
-    return render_template('index.html', admit_class_list=admit_class_list, sector_list=sector_list, education_level_list=education_level_list, state_list=state_list, citizen_country_list=citizen_country_list)
+    sector_list, admit_class_list, education_level_list = get_varlists()
+    return render_template('index.html', admit_class_list=admit_class_list, 
+                           sector_list=sector_list, education_level_list=education_level_list)#, 
+                           #state_list=state_list)
 
 @app.route('/recommendation', methods=['GET', 'POST']) 
 def recommendation():
@@ -40,14 +42,14 @@ def recommendation():
             edu_level = request.form['edu_level']
             sector = request.form['sector']
             agent_used = request.form['agent_used']
-            work_state = request.form['work_state']
-            citizen_country = request.form['citizen_country']
-            business_size = request.form['business_size']
+            #work_state = request.form['work_state']
+            #citizen_country = request.form['citizen_country']
+            #business_size = request.form['business_size']
 
             #calculate probabilities
             probs, top3probs = calc_probabilities(admit_class, edu_level, float(sector[:2]), 
-                                                  agent_used, work_state[:2], 
-                                                 citizen_country.upper(), business_size)
+                                                  agent_used) #, work_state[:2]) #, 
+                                                 #citizen_country.upper())#, business_size)
             #put probability tables to html form
             #probstrans = probs.transpose()
             htmltables.append(
@@ -72,9 +74,8 @@ def recommendation():
             print("error")
     return render_template('recommendation.html', errors=errors, admit_class = admit_class, 
                            sector = sector, edu_level = edu_level, agent_used = agent_used,
-                           work_state = work_state[2:], citizen_country = citizen_country,
-                           business_size = business_size.title(), tables=htmltables, 
-                           plotscript = plotscript, plotdiv=plotdiv)
+                           tables=htmltables, plotscript = plotscript, plotdiv=plotdiv)
+            #work_state = work_state[2:], citizen_country = citizen_country, business_size = business_size.title(),)
 def hello():
     return "Insight web app created by Lauren Kahre."
 
