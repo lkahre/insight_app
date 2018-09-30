@@ -4,26 +4,26 @@ def calc_probabilities(admit_class, education_level, sector, agent_used): #,
     import pandas as pd
     import math
     import datetime as dt
-    from creds import creds
+    from creds_nopass import creds
     from sqlalchemy import create_engine
     from sqlalchemy_utils import database_exists, create_database
     import psycopg2
     
     pd.options.display.max_columns = 150
     
-    username = creds['username']
-    password = creds['password']
+    #username = creds['username']
+    #password = creds['password']
     host = creds['host'] 
     port = creds['port'] 
     db_name = creds['db_name']
 
-    engine = create_engine( 'postgresql://{}:{}@{}:{}/{}'.format(username, 
-                                                             password, 
-                                                             host, 
-                                                             port, 
-                                                             db_name))
-    if not database_exists(engine.url):
-        create_database(engine.url)
+    #engine = create_engine( 'postgresql://{}:{}@{}:{}/{}'.format(username, 
+    #                                                         password, 
+    #                                                         host, 
+    #                                                         port, 
+    #                                                         db_name))
+    #if not database_exists(engine.url):
+    #    create_database(engine.url)
     
     con = None
     con = psycopg2.connect(database = db_name, user = username, host=host, password=password)

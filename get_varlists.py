@@ -3,25 +3,25 @@ def get_varlists():
     from sqlalchemy_utils import database_exists, create_database
     import psycopg2
     import pandas as pd
-    from creds import creds
+    from creds_nopass import creds
     from countrydict import us_abbrev_state
     
-    username = creds['username']
-    password = creds['password']
+    #username = creds['username']
+    #password = creds['password']
     host = creds['host']
     port = creds['port']
     db_name = creds['db_name']
 
-    engine = create_engine( 'postgresql://{}:{}@{}:{}/{}'.format(username, 
+    #engine = create_engine( 'postgresql://{}:{}@{}:{}/{}'.format(username, 
                                                                  password, 
                                                                  host, 
                                                                  port, 
                                                                  db_name))
-    if not database_exists(engine.url):
-        create_database(engine.url)
+   # if not database_exists(engine.url):
+   #     create_database(engine.url)
     
     con = None
-    con = psycopg2.connect(database = db_name, user = username, host=host, password=password)
+    con = psycopg2.connect(database = db_name, host=host)#, user = username, password=password)
     
     sector_all_query = """
     SELECT * FROM sector_code_dict;
