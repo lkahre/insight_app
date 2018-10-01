@@ -8,10 +8,10 @@ def calc_probabilities(admit_class, education_level, sector, agent_used): #,
     from sqlalchemy import create_engine
     from sqlalchemy_utils import database_exists, create_database
     from urllib.parse import urlparse
-    import os
+    from os import DATABASE_URL
     import psycopg2
     
-    pd.options.display.max_columns = 150
+    #pd.options.display.max_columns = 150
     
     result = urlparse.urlparse(DATABASE_URL)
     username = result.username
@@ -19,14 +19,6 @@ def calc_probabilities(admit_class, education_level, sector, agent_used): #,
     host = result.hostname
     port = '5432'
     db_name = result.path[1:]
-
-    #engine = create_engine( 'postgresql://{}:{}@{}:{}/{}'.format(username, 
-    #                                                         password, 
-    #                                                         host, 
-    #                                                         port, 
-    #                                                         db_name))
-    #if not database_exists(engine.url):
-    #    create_database(engine.url)
     
     con = None
     con = psycopg2.connect(database = db_name, user = username, host=host, password=password)

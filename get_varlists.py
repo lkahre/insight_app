@@ -3,7 +3,7 @@ def get_varlists():
     from sqlalchemy_utils import database_exists, create_database
     import psycopg2
     import pandas as pd
-    import os
+    from os import DATABASE_URL
     from urllib.parse import urlparse
     #from creds import creds
     from countrydict import us_abbrev_state
@@ -15,14 +15,6 @@ def get_varlists():
     port = '5432'
     db_name = result.path[1:]
 
-    #engine = create_engine( 'postgresql://{}:{}@{}:{}/{}'.format(username, 
-    #                                                             password, 
-    #                                                             host, 
-    #                                                             port, 
-    #                                                             db_name))
-   # if not database_exists(engine.url):
-   #     create_database(engine.url)
-    
     con = None
     con = psycopg2.connect(database = db_name, host=host, user = username, password=password)
     
