@@ -13,7 +13,7 @@ def calc_probabilities(admit_class, education_level, sector, agent_used): #,
     
     #pd.options.display.max_columns = 150
     database_url = os.environ.get('DATABASE_URL', None)
-    result = urlparse.urlparse(database_url)
+    result = urlparse(database_url)
     username = result.username
     password = result.password
     host = result.hostname

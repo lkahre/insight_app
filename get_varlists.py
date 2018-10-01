@@ -9,7 +9,7 @@ def get_varlists():
     from countrydict import us_abbrev_state
     
     database_url = os.environ.get('DATABASE_URL', None)
-    result = urlparse.urlparse(database_url)
+    result = urlparse(database_url)
     username = result.username
     password = result.password
     host = result.hostname
