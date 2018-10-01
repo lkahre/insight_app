@@ -7,6 +7,8 @@ import pandas as pd
 import numpy as np
 #import io
 import os
+import logging
+import sys
 #import base64
 
 def highlight_cols(s):
@@ -14,6 +16,8 @@ def highlight_cols(s):
     return 'background-color: %s' %color 
 
 app = Flask(__name__, static_url_path='/static')
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 @app.route('/', methods=['GET', 'POST']) 
 def index():           
     sector_list, admit_class_list, education_level_list = get_varlists()
