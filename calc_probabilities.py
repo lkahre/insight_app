@@ -8,6 +8,7 @@ def calc_probabilities(admit_class, education_level, sector, agent_used): #,
     from sqlalchemy import create_engine
     from sqlalchemy_utils import database_exists, create_database
     from urllib.parse import urlparse
+    import os
     import psycopg2
     
     pd.options.display.max_columns = 150
