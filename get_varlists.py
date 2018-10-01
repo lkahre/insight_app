@@ -3,14 +3,16 @@ def get_varlists():
     from sqlalchemy_utils import database_exists, create_database
     import psycopg2
     import pandas as pd
-    from creds import creds
+    from urllib.parse import urlparse
+    #from creds import creds
     from countrydict import us_abbrev_state
     
-    username = creds['username']
-    password = creds['password']
-    host = creds['host']
-    port = creds['port']
-    db_name = creds['db_name']
+    result = urlparse.urlparse(DATABASE_URL)
+    username = result.username
+    password = result.password
+    host = result.hostname
+    port = '5432'
+    db_name = result.path[1:]
 
     #engine = create_engine( 'postgresql://{}:{}@{}:{}/{}'.format(username, 
     #                                                             password, 

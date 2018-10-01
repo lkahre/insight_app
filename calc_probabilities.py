@@ -7,15 +7,17 @@ def calc_probabilities(admit_class, education_level, sector, agent_used): #,
     from creds import creds
     from sqlalchemy import create_engine
     from sqlalchemy_utils import database_exists, create_database
+    from urllib.parse import urlparse
     import psycopg2
     
     pd.options.display.max_columns = 150
     
-    username = creds['username']
-    password = creds['password']
-    host = creds['host'] 
-    port = creds['port'] 
-    db_name = creds['db_name']
+    result = urlparse.urlparse(DATABASE_URL)
+    username = result.username
+    password = result.password
+    host = result.hostname
+    port = '5432'
+    db_name = result.path[1:]
 
     #engine = create_engine( 'postgresql://{}:{}@{}:{}/{}'.format(username, 
     #                                                         password, 
