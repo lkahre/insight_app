@@ -5,9 +5,9 @@ from get_varlists import get_varlists
 #import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import io
+#import io
 import os
-import base64
+#import base64
 
 def highlight_cols(s):
     color = 'lightblue'
