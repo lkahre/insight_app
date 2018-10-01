@@ -3,12 +3,13 @@ def get_varlists():
     from sqlalchemy_utils import database_exists, create_database
     import psycopg2
     import pandas as pd
-    from os import DATABASE_URL
+    import os
     from urllib.parse import urlparse
     #from creds import creds
     from countrydict import us_abbrev_state
     
-    result = urlparse.urlparse(DATABASE_URL)
+    database_url = os.environ.get('DATABASE_URL', None)
+    result = urlparse.urlparse(database_url)
     username = result.username
     password = result.password
     host = result.hostname

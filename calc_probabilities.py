@@ -8,11 +8,11 @@ def calc_probabilities(admit_class, education_level, sector, agent_used): #,
     from sqlalchemy import create_engine
     from sqlalchemy_utils import database_exists, create_database
     from urllib.parse import urlparse
-    from os import DATABASE_URL
+    import os
     import psycopg2
     
     #pd.options.display.max_columns = 150
-    
+    database_url = os.environ.get('DATABASE_URL', None)
     result = urlparse.urlparse(DATABASE_URL)
     username = result.username
     password = result.password
