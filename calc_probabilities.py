@@ -4,7 +4,7 @@ def calc_probabilities(admit_class, education_level, sector, agent_used): #,
     import pandas as pd
     import math
     import datetime as dt
-    from creds import creds
+    #from creds import creds
     from sqlalchemy import create_engine
     from sqlalchemy_utils import database_exists, create_database
     from urllib.parse import urlparse

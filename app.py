@@ -24,8 +24,7 @@ def index():
     return render_template('index.html', admit_class_list=admit_class_list, 
                            sector_list=sector_list, education_level_list=education_level_list)#, 
                            #state_list=state_list)
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
+
 @app.route('/recommendation', methods=['GET', 'POST']) 
 def recommendation():
     errors = []
