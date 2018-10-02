@@ -68,13 +68,13 @@ def recommendation():
                             )
             htmltables.append(
                             top3probs.style
-                            .set_properties(**{'text-align':'center', 'width':'150px'})
+                            #.set_properties(**{'text-align':'center', 'width':'150px'})
                             .set_table_attributes('align="center"')
                             .render()
                             )
             htmltables.append(
                             bot3probs.style
-                            .set_properties(**{'text-align':'center', 'width':'150px'})
+                            #.set_properties(**{'text-align':'center', 'width':'150px'})
                             .set_table_attributes('align="center"')
                             .render()
                             )
