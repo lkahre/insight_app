@@ -68,13 +68,13 @@ def recommendation():
                             )
             htmltables.append(
                             top3probs.style
-                            .set_properties(**{'text-align':'center'})#, 'width':'50%', 'float':'left', 'overflow':'hidden'})
+                            .set_properties(**{'text-align':'center', 'width':'150px'})#, 'float':'left', 'overflow':'hidden'})
                             .set_table_attributes('align="center"')
                             .render()
                             )
             htmltables.append(
                             bot3probs.style
-                            .set_properties(**{'text-align':'center'})#, 'width':'50%', 'float':'right', 'overflow':'hidden'})
+                            .set_properties(**{'text-align':'center', 'width':'50%'})#, 'float':'right', 'overflow':'hidden'})
                             .set_table_attributes('align="center"')
                             .render()
                             )
