@@ -16,7 +16,7 @@ def make_plot(probs):
     month_df = pd.DataFrame({'Month': months_list})
     print(month_df)
     
-    plot = figure(x_range=month_df['Month'], y_range=(0,105))
+    plot = figure(x_range=month_df['Month']) #, y_range=(0,105))
     plot.xaxis.axis_label = 'Month'
     plot.xaxis.axis_label_text_font = 'helvetica'
     plot.xaxis.axis_label_text_font_size = '14pt'
