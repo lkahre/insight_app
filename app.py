@@ -74,7 +74,7 @@ def recommendation():
                             )
             htmltables.append(
                             bot3probs.style
-                            .set_properties(**{'text-align':'center', 'width':'50%'})#, 'float':'right', 'overflow':'hidden'})
+                            .set_properties(**{'text-align':'center', 'width':'150px'})#, 'float':'right', 'overflow':'hidden'})
                             .set_table_attributes('align="center"')
                             .render()
                             )
