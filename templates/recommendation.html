@@ -42,16 +42,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-content">
     <div class="w3-twothird">
         <h4>Based on this information, your best and worst three months to apply are:</h4>
-        <div class = "container">
-        <div class="floatLeft">
+        <div style="float: left; width: 50%">
             <h5> Best months: </h5>
             {{ tables[1]|safe }}
         </div>
-        <div class="floatRight">
+        <div style="float: right; width: 50%">
             <h5> Worst months: </h5>
             {{ tables[2]|safe }}
         </div>
-    </div>
         {{ plotdiv|safe }}
         {{ plotscript|safe }}
     </div>
