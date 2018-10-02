@@ -94,9 +94,11 @@ def calc_probabilities(admit_class, education_level, sector, agent_used): #,
     result_df = pd.DataFrame({'Month': months_list_fullname, 
                               'Percent Chance': prob_accept})
     top3_df = result_df.nlargest(3, 'Percent Chance')
+    bot3_df = result_df.nsmallest(3, 'Percent Chance')
     #top3_dfnum = len(top3_df)
     top3_df.index = range(1, 4)
+    bot3_df.index = range(1, 4)
     #result_df = result_df.style.set_properties(**{'text-align': 'center'})
     #result_df.render()
     
-    return result_df, top3_df
+    return result_df, top3_df, bot3_df

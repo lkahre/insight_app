@@ -52,8 +52,9 @@ def recommendation():
             #business_size = request.form['business_size']
 
             #calculate probabilities
-            probs, top3probs = calc_probabilities(admit_class, edu_level, float(sector[:2]), 
-                                                  agent_used) #, work_state[:2]) #, 
+            probs, top3probs, bot3probs = calc_probabilities(admit_class, edu_level, 
+                                                             float(sector[:2]), agent_used) 
+                                                #, work_state[:2]) #, 
                                                  #citizen_country.upper())#, business_size)
             #put probability tables to html form
             #probstrans = probs.transpose()
@@ -67,6 +68,12 @@ def recommendation():
                             )
             htmltables.append(
                             top3probs.style
+                            .set_properties(**{'text-align':'center', 'width':'150px'})
+                            .set_table_attributes('align="center"')
+                            .render()
+                            )
+            htmltables.append(
+                            bot3probs.style
                             .set_properties(**{'text-align':'center', 'width':'150px'})
                             .set_table_attributes('align="center"')
                             .render()

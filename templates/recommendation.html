@@ -41,8 +41,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-padding-64 w3-container" align-content: center>
   <div class="w3-content">
     <div class="w3-twothird">
-        <h4>Based on this information, your top three months to apply are:</h4>
-        {{ tables[1]|safe }}
+        <h4>Based on this information, your best and worst three months to apply are:</h4>
+        <div class="floatLeft">
+            {{ tables[1]|safe }}
+        </div>
+        <div class="floatRight">
+            {{ tables[2]|safe }}
+        </div>
         {{ plotdiv|safe }}
         {{ plotscript|safe }}
     </div>
