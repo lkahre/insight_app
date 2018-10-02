@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link
     href="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.css"
     rel="stylesheet" type="text/css">
@@ -25,6 +26,16 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 </style>
 <body>   
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
@@ -42,11 +53,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-content">
     <div class="w3-twothird">
         <div class="row">
-        <div class="column" width="125px">
+        <div class="column">
         <h4>Based on this information, your best three months to apply are:</h4>
             {{ tables[1]|safe }}
             </div>
-            <div class="column" width="125px">
+            <div class="column">
         <h4>Your worst three months to apply are: </h4>
             {{ tables[2]|safe }}
             </div>
