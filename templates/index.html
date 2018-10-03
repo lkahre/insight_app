@@ -17,7 +17,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <header class="w3-container w3-red w3-center" style="padding:128px 16px">
       <h1 class="w3-margin w3-jumbo">ImmiGranted</h1>
       <p class="w3-xlarge">Helping you maximize your chances of US Permanent Work Visa Acceptance</p>
-        <form role="form" method='POST' action='/recommendation' style="padding:100px">
+        <form role="form" method='POST' action='/recommendation'>
         <div class="form-group">
             <select name = "admit_class" id="admit_class" width="200" method="GET">
             <option selected="selected" value = ''>Do you currently have a temporary visa?</option>
@@ -33,7 +33,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             {% endfor %}
             </select>-->
         </div>
-        <div class="form-group">
+        <div class="form-group" style="padding:100px;">
             <select name = "edu_level" id="edu_level" width="200" method="GET">
             <option selected="selected" value = ''>What's your education level?</option>
             {% for level in education_level_list %}
@@ -48,7 +48,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             {% endfor %}
             </select>-->
         </div>
-        <div class="form-group">
+        <div class="form-group" style="padding:100px;">
             <select name = "sector" id="sector" width="200" method="GET">
             <option selected="selected" value = ''>What NAICS sector do you work in?</option>
             {% for sectorid in sector_list %}
@@ -56,7 +56,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             {% endfor %}
             </select>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="padding:100px;">
             <!--<select name = "business_size" id="business_size" width="200" method="GET">
             <option selected="selected" value = ''>How large is your employer?</option>
                 <option value = "micro"> Micro (less than 6 Employees) </option>
