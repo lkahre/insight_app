@@ -101,11 +101,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <h3>Ready to Apply?</h3>
       <h5 class="w3-padding-32">You can start your application online 
           <a href="https://www.uscis.gov/tools" target=”_blank”> here </a>.</h5>
+      {% if agent_used == "no" %}
       <h3>Need Help Filing an Application?</h3>
       <h5 class="w3-padding-32">Many people find more success with their application by using
           an agent. You can search for immigration lawyers near you 
           <a href="http://www.google.com/search?q=immigration+attorneys+near+me" target=”_blank”> 
               here</a>.</h5>
+      {% endif %}
     </div>
   </div>
 </div>
